@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameZone - Juegos Interactivos</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Página Principal -->
+        <main id="home" class="page active">
+            <header>
+                <h1>🎮 GameZone</h1>
+                <p class="subtitle">¡Bienvenido a nuestra zona de juegos interactivos!</p>
+            </header>
+            
+            <section class="description">
+                <p>Selecciona uno de nuestros dos emocionantes juegos y pon a prueba tus habilidades. 
+                ¿Podrás esquivar todos los obstáculos o conseguir la serpiente más larga?</p>
+            </section>
+            
+            <section class="games-container">
+                <div class="game-card" onclick="showGame('car-game')">
+                    <div class="game-icon">🚗</div>
+                    <h2>Carrito y Obstáculos</h2>
+                    <p>Esquiva los obstáculos que aparecen en el camino. ¡Cuanto más tiempo sobrevivas, mayor será tu puntuación!</p>
+                    <button class="play-btn">Jugar</button>
+                </div>
+                
+                <div class="game-card" onclick="showGame('snake-game')">
+                    <div class="game-icon">🐍</div>
+                    <h2>Snake</h2>
+                    <p>El clásico juego de la serpiente. Come las manzanas y crece, pero no choques contigo mismo ni con las paredes.</p>
+                    <button class="play-btn">Jugar</button>
+                </div>
+            </section>
+            
+            <footer>
+                <p>Proyecto desarrollado con HTML, CSS y JavaScript</p>
+            </footer>
+        </main>
+
+        <!-- Juego del Carrito -->
+        <section id="car-game" class="page game-page">
+            <button class="back-btn" onclick="showGame('home')">← Volver al Menú</button>
+            <h2>🚗 Carrito y Obstáculos</h2>
+            
+            <div class="instructions">
+                <h3>Instrucciones:</h3>
+                <p>Usa las teclas <strong>← →</strong> o <strong>A/D</strong> para mover el carrito. 
+                Esquiva los obstáculos que caen. ¡Cada obstáculo esquivado suma puntos!</p>
+            </div>
+            
+            <div class="game-info">
+                <span>Puntuación: <strong id="car-score">0</strong></span>
+                <span>Récord: <strong id="car-highscore">0</strong></span>
+            </div>
+            
+            <canvas id="carCanvas" width="400" height="500"></canvas>
+            
+            <div class="game-controls">
+                <button id="carStartBtn" onclick="startCarGame()">Iniciar Juego</button>
+            </div>
+            
+            <div id="car-result" class="result-message"></div>
+        </section>
+
+        <!-- Juego Snake -->
+        <section id="snake-game" class="page game-page">
+            <button class="back-btn" onclick="showGame('home')">← Volver al Menú</button>
+            <h2>🐍 Snake</h2>
+            
+            <div class="instructions">
+                <h3>Instrucciones:</h3>
+                <p>Usa las teclas <strong>↑ ↓ ← →</strong> o <strong>W/A/S/D</strong> para mover la serpiente. 
+                Come las manzanas 🍎 para crecer. ¡No choques con las paredes ni contigo mismo!</p>
+            </div>
+            
+            <div class="game-info">
+                <span>Puntuación: <strong id="snake-score">0</strong></span>
+                <span>Récord: <strong id="snake-highscore">0</strong></span>
+            </div>
+            
+            <canvas id="snakeCanvas" width="400" height="400"></canvas>
+            
+            <div class="game-controls">
+                <button id="snakeStartBtn" onclick="startSnakeGame()">Iniciar Juego</button>
+            </div>
+            
+            <div id="snake-result" class="result-message"></div>
+        </section>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
